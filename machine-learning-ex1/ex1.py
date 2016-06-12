@@ -1,6 +1,5 @@
 import numpy as np
 from matplotlib import pyplot as plt
-# import numpy as np
 from numpy import zeros, ones, reshape, array, linspace, logspace, add, dot, transpose, shape, negative
 # import matplotlib.pyplot as plt
 from pylab import scatter, show, title, xlabel, ylabel, plot, contour
