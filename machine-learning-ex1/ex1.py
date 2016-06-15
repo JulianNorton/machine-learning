@@ -8,7 +8,7 @@ a = np.identity(5)
 
 # print(a)
 
-data=np.loadtxt('ex1data1.txt',delimiter=',')
+# data=np.loadtxt('ex1data1.txt',delimiter=',')
 
 # print(data)
 
@@ -16,7 +16,7 @@ data=np.loadtxt('ex1data1.txt',delimiter=',')
 plt.scatter(data[:,0],data[:,1])
 plt.ylabel('Profit in $10,000s')
 plt.xlabel('Population in 10,000s')
-# plt.show()
+plt.show()
 
 # ======= format the data =======
 x=data[:,0]
