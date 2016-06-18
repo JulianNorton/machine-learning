@@ -14,11 +14,11 @@ plt.xlabel('Population in 10,000s')
 # plt.show()
 
 # ======= format the data =======
-
 x = data[:,0]
 y = data[:,1]
 y_data = y
 
+# Number of examples
 m = len(y)
 
 y = reshape(y,(m,1))
@@ -47,7 +47,7 @@ theta = gradient_descent(theta, x_vectorized, y, alpha, iterations)
 print(theta)
 
 # visualise outcome
-def plot_solution(x,y,solution):
+def plot_solution(x, y, solution):
     # create figure and axes
     fig = plt.figure()
     # split the page into a 1x1 array of subplots and put solution in the first one (111)
@@ -59,5 +59,5 @@ def plot_solution(x,y,solution):
     ax.plot(x, solution, color='green')
     plt.show()
     
-plot_solution(x,y_data,dot(x_vectorized,theta))
+plot_solution(x, y_data, dot(x_vectorized,theta))
 
