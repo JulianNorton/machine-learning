@@ -28,7 +28,7 @@ x_vectorized[:, 1] = x
 # Gradient Descent
 theta = zeros(shape=(2, 1))
 alpha = 0.01
-iterations = 10
+iterations = 1000
 
 # def cost_function(theta, x, y):
 #     prediction_y = dot(x, theta)
@@ -40,13 +40,13 @@ def gradient_descent(theta, x_vectorized, y, alpha, iterations):
     for i in range(iterations):
         prediction_y = dot(x_vectorized, theta)
         theta = theta - alpha * (1.0/m) * dot(transpose(x_vectorized), (prediction_y - y))
-        print(theta[0], '== theta ZERO', theta[1], '== theta ONE', ' after ' +str(i+1), 'iterations', '\n')
-    # return theta
+        # print(theta[0], '== theta ZERO', theta[1], '== theta ONE', ' after ' +str(i+1), 'iterations', '\n')
+    return theta
 
-# cost_function(theta, x, y)
+theta = gradient_descent(theta, x_vectorized, y, alpha, iterations)
+print(theta)
 
-gradient_descent(theta, x_vectorized, y, alpha, iterations)
-
+# visualise outcome
 def plot_solution(x,y,solution):
     # create figure and axes
     fig = plt.figure()
@@ -60,9 +60,4 @@ def plot_solution(x,y,solution):
     plt.show()
     
 plot_solution(x,y_data,dot(x_vectorized,theta))
-
-
-
-
-
 
