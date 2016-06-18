@@ -42,6 +42,7 @@ def gradient_descent(theta, X, y, alpha, num_iters):
 
     for i in range(num_iters):
         theta=theta-(alpha/m)*(dot(transpose(X),(dot(X,theta)-y)))
+        print
         J_history[i] = cost_function(theta, X, y)
     return theta, J_history
 
@@ -69,6 +70,7 @@ def plot_solution(x,y,solution):
     # plots solution
     ax.plot(x, solution, color='green')
     plt.show()
+    
 plot_solution(x,Y,dot(X,theta))
 
 # ======= visualise cost function J over a grid of values for theta =======
