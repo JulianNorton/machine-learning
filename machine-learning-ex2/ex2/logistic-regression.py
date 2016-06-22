@@ -29,22 +29,29 @@ x_ones = ones(shape=(m, 3))
 x_ones[:, [1,2]] = x
 x = x_ones
 
-# already transposed
 theta = zeros(shape=(m,3))
 
-z = theta * x
-
+z = x * theta
+# print(z)
 def sigmoid_function(z):
-    hypothesis = 1 / (1 + (math.e)**(-z))
-    print hypothesis
+    hypothesis = 1.0 / (1.0 + (math.e)**(-z))
+    # print(hypothesis)
     return hypothesis
 
 hypothesis = sigmoid_function(z)
 
-# g = ((1.0/m)* np.sum(-y*math.log1p(hypothesis)) - (1-y)*log1p(1 - hypothesis))
 
-# def cost_function(theta, x, y):
-#     prediction_y = dot(x, theta)
-#     J = (1.0 / (2*m)) * dot(transpose(prediction_y - y) , (prediction_y - y))
-#     print(J, 'cost')
-#     return J
+test_list = list()
+
+J = 0
+for i in range(m):
+    J = J + (-y[i] * np.log1p(hypothesis[i]) - (1.0 - y[i]) * np.log1p(1.0 - hypothesis[i]))
+
+print(J)
+
+# def cost_function(hypothesis, m, y):
+    # J = (1.0/m) * np.sum(-y*np.log1p(hypothesis) - (1.0-y) * np.log1p(1.0 - hypothesis))
+    # J = '0'
+    # print(J)
+
+# cost_function(hypothesis, m, y)
