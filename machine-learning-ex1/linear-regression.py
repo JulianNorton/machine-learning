@@ -30,11 +30,12 @@ theta = zeros(shape=(2, 1))
 alpha = 0.01
 iterations = 1000
 
-# def cost_function(theta, x, y):
-#     prediction_y = dot(x, theta)
-#     J = (1.0 / (2*m)) * dot(transpose(prediction_y - y) , (prediction_y - y))
-#     print(J, 'cost')
-    # return J
+# this works, but doesn't actually impact the gradient descent function
+def cost_function(theta, x, y):
+    prediction_y = dot(x, theta)
+    J = (1.0 / (2*m)) * dot(transpose(prediction_y - y) , (prediction_y - y))
+    print(J, 'cost')
+    return J
 
 def gradient_descent(theta, x_vectorized, y, alpha, iterations):
     for i in range(iterations):
