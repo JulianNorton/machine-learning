@@ -28,7 +28,7 @@ x_vectorized[:, 1] = x
 # Gradient Descent
 theta = zeros(shape=(2, 1))
 alpha = 0.01
-iterations = 1000
+iterations = 1500
 
 # this works, but doesn't actually impact the gradient descent function
 def cost_function(theta, x, y):
@@ -47,7 +47,7 @@ def gradient_descent(theta, x_vectorized, y, alpha, iterations):
 theta = gradient_descent(theta, x_vectorized, y, alpha, iterations)
 print(theta)
 
-# visualise outcome
+# Visualizing the outcome
 def plot_solution(x, y, solution):
     # create figure and axes
     fig = plt.figure()
