@@ -64,15 +64,15 @@ print(hypothesis[5])
 sigma_x0, sigma_x1, sigma_x2 = list(), list(), list()
 
 for i in range(m):
-    sigma_x0.append(((hypothesis[i] - y[i]) * 1) * x[i, 0])
+    sigma_x0.append(((hypothesis[i] - y[i])) * x[i, 0])
 sigma_x0 = (1/m) * sum(sigma_x0)
 
 for i in range(m):
-    sigma_x1.append(((hypothesis[i] - y[i]) * 1) * x[i, 1])
+    sigma_x1.append(((hypothesis[i] - y[i])) * x[i, 1])
 sigma_x1 = (1/m) * sum(sigma_x1)
 
 for i in range(m):
-    sigma_x2.append(((hypothesis[i] - y[i]) * 1) * x[i, 2])
+    sigma_x2.append(((hypothesis[i] - y[i])) * x[i, 2])
 sigma_x2 = (1/m) * sum(sigma_x2)
 
 print(sigma_x0, 'sigma_x0 \n', sigma_x1, 'sigma_x1 \n', sigma_x2, 'sigma_x2 \n')
