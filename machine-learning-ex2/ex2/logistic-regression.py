@@ -28,35 +28,61 @@ y = data_1[:,2]
 x_ones = ones(shape=(m, 3))
 x_ones[:, [1,2]] = x
 x = x_ones
+theta = zeros(shape=(3,1))
+z = dot(x, theta)
+
+def sigmoid_function(z):
+    hypothesis = 1.0 / (1.0 + (math.e)**(-z))
+    # print(hypothesis)
+    return hypothesis
+
+hypothesis = sigmoid_function(z)
+
+# cost function
+def logistic_cost_function():
+    J = 0
+    for i in range(m):
+        J = J + (-y[i] * np.log1p(hypothesis[i]) - (1.0 - y[i]) * np.log1p(1.0 - hypothesis[i]))
+    print(J)
+# logistic_cost_function()
+
+# def logistic_gradient_descent():
 
 # print(x)
-theta = zeros(shape=(3,1))
-# print(np.transpose(theta))
-z = np.transpose(theta) * x 
+# row = 50
+# column = 0
+# j = column
+# print(x[:, column])
+j = len(x[0, :])
 
-print('z', z, 'z')
+# for i in range(j):
+#     print((i, j))
 
-# print(z)
-# def sigmoid_function(z):
-#     hypothesis = 1.0 / (1.0 + (math.e)**(-z))
-#     print(hypothesis)
-#     return hypothesis
+print(hypothesis[5])
+# print(y[5])
 
-# hypothesis = sigmoid_function(z)
+sigma_x0, sigma_x1, sigma_x2 = list(), list(), list()
+
+for i in range(m):
+    sigma_x0.append(((hypothesis[i] - y[i]) * 1) * x[i, 0])
+sigma_x0 = (1/m) * sum(sigma_x0)
+
+for i in range(m):
+    sigma_x1.append(((hypothesis[i] - y[i]) * 1) * x[i, 1])
+sigma_x1 = (1/m) * sum(sigma_x1)
+
+for i in range(m):
+    sigma_x2.append(((hypothesis[i] - y[i]) * 1) * x[i, 2])
+sigma_x2 = (1/m) * sum(sigma_x2)
+
+print(sigma_x0, 'sigma_x0 \n', sigma_x1, 'sigma_x1 \n', sigma_x2, 'sigma_x2 \n')
 
 
-# J = 0
-# for i in range(m):
-#     J = J + (-y[i] * np.log1p(hypothesis[z[i]) - (1.0 - y[i]) * np.log1p(1.0 - hypothesis[z[i])))
-#     if i == 0:
-#         print(hypothesis[i])
-#     # print(i)
 
-# print(J)
 
-# def cost_function(hypothesis, m, y):
-    # J = (1.0/m) * np.sum(-y*np.log1p(hypothesis) - (1.0-y) * np.log1p(1.0 - hypothesis))
-    # J = '0'
-    # print(J)
 
-# cost_function(hypothesis, m, y)
+
+
+
+
+
