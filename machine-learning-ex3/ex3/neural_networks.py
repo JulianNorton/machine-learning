@@ -9,10 +9,21 @@ print('\n', 'Begin script')
 
 mat = sio.loadmat('ex3data1.mat')
 
-print(mat)
 
-print(mat['X'])
-print(mat['y'])
+def sigmoid_function(z):
+    hypothesis = 1.0 / (1.0 + (math.e)**(-z))
+    # print(hypothesis)
+    return hypothesis
+
+hypothesis = sigmoid_function(z)
+
+# cost function
+def logistic_cost_function():
+    J = 0
+    for i in range(m):
+        J = J + (-y[i] * np.log1p(hypothesis[i]) - (1.0 - y[i]) * np.log1p(1.0 - hypothesis[i]))
+    print(J)
+    
 
 X = mat['X']
 y = mat['y']
