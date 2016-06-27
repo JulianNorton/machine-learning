@@ -9,25 +9,22 @@ print('\n', 'Begin script')
 
 mat = sio.loadmat('ex3data1.mat')
 
+X = np.array(mat['X'])
 
-def sigmoid_function(z):
-    hypothesis = 1.0 / (1.0 + (math.e)**(-z))
-    # print(hypothesis)
-    return hypothesis
+y = np.array(mat['y'])
 
-hypothesis = sigmoid_function(z)
+# Not sure if we'll need this anywhere?
+X_row_length = len(X[:, 0])
+X_column_length = len(X[0, :])
 
-# cost function
-def logistic_cost_function():
-    J = 0
-    for i in range(m):
-        J = J + (-y[i] * np.log1p(hypothesis[i]) - (1.0 - y[i]) * np.log1p(1.0 - hypothesis[i]))
-    print(J)
-    
+m = len(y)
 
-X = mat['X']
-y = mat['y']
 
-print(X, 'X from mat X')
-print(y, 'Y from mat Y')
+# x is X but with a column of 1's in the first column
+# becoming a 5000 by 401
+x = np.column_stack((ones(shape(X)[0]), X))
 
+print(m)
+
+# theta gets +1 because that'll be our bias weight ???
+# initial_theta = zeros(shape=(m+1,1))
