@@ -32,6 +32,7 @@ n = x_column_length
 theta = zeros(shape=(n,1))
 z = dot(x, theta)
 regularization_lambda = 1/m
+alpha = .03
 
 
 def sigmoid_function(z):
@@ -48,24 +49,32 @@ def cost_function(x,y,i,j):
     return (sigmoid_function(x[i]) - y[i]) * x[i, j]
 
 def calc_partial_derivatives():
-    calc_partial_derivatives = list()
+    calc_partial_derivatives = np.array([])
     for j in range(n):
+        print(j)
         if j == 0:
-            partial_derivatives = list()
+            partial_derivatives = np.array([])
             for i in range(m):
-                cost = cost_function(x,y,i,j)
-                partial_derivatives.append(cost)
+                np.append(partial_derivatives, cost_function(x,y,i,j))
             partial_derivatives = (1/m) * np.sum(partial_derivatives)
             calc_partial_derivatives = np.asarray(partial_derivatives)
         else:
             partial_derivatives = list()
             for i in range(m):
-                cost = cost_function(x,y,i,j) + (regularization_lambda * theta[j])
-                partial_derivatives.append(cost)
+                np.append(partial_derivatives, cost_function(x,y,i,j) + (regularization_lambda * theta[j]))
             partial_derivatives = (1/m) * np.sum(partial_derivatives)
             calc_partial_derivatives = np.append(calc_partial_derivatives, partial_derivatives)
+    return calc_partial_derivatives
 
-calc_partial_derivatives()
+partial_derivatives = calc_partial_derivatives()
+print(type(partial_derivatives), 'partial_derivatives')
+print(type(theta), 'theta')
+print(type(alpha), 'alpha')
+
+# this shit doesn't work!
+theta = theta - alpha * partial_derivatives
+
+print(theta)
 
 
 
