@@ -3,4 +3,7 @@ This repo is for the programming assignments for the Stanford Andrew Ng's Machin
 I've included the Octave solutions (thank you [Lewuathe](https://github.com/Lewuathe/cousera-assignment)) to to pass the assignments, while working through the problems using Python and Numpy.
 
 Class notes:
-http://www.holehouse.org/mlclass/
+* http://www.holehouse.org/mlclass/
+
+Resources:
+* https://www.metacademy.org/roadmaps/cjrd/coursera_ml_supplement
