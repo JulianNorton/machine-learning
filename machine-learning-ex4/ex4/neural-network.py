@@ -50,6 +50,7 @@ def sigmoid_function(z):
 # def cost_function(x,y,i,j):
     # return (sigmoid_function(x[i]) - y[i]) * x[i, j]
 
-
+print(shape(theta1), 'theta 1 shape')
+print(shape(theta2), 'theta 2 shape')
 
 print('\n', 'End script')
