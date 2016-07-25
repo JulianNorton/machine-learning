@@ -22,7 +22,16 @@ idx = zeros(size(X,1), 1);
 %
 
 
-
+for i = 1:size(idx, 1)
+	min = 100000000
+	for j = 1:K
+		dist = norm(X(i, :) - centroids(j, :))^2
+		if (min > dist)
+		   min = dist
+		   idx(i) = j
+		endif
+	end
+end
 
 
 
